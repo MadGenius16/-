@@ -570,3 +570,47 @@ const users = [
     gender: 'Female',
   },
 ];
+
+// {
+//   brand: 'Mazda',
+//   model: 'CX-5',
+//   year: 2020,
+//   color: 'Red',
+//   price: 28000,
+//   amount: 5,
+//   isSportCar: false,
+//   type: 'SUV',
+// },
+
+// авто зелен. кол.
+const findByColor = (cars, thresColor) => {
+  return cars.find((car)=>car.color === thresColor)
+}
+console.log(findByColor(cars, "Green")); 
+
+// Знайти усі спорткари
+const allSportCar = (cars, isSportCar)=> {
+  return cars.filter((car)=>car.isSportCar)
+}
+console.table(allSportCar(cars, 'isSportCar')); 
+
+// знайти авто новіші за 2022р.
+
+const newCar2022 = (cars, year)=> {
+  return cars.filter((car)=>car.year > year)
+}
+console.table(newCar2022(cars, '2022')); 
+
+// авто ціна яких вище 30000 
+
+const filterByPrice = (cars, price) =>{
+  return cars.filter((car)=>car.price > price)
+}
+console.table(filterByPrice(cars, 30000)); 
+
+// Знайти всі машини червоного кольору.
+
+const filterByColor = (cars, color) => {
+  return cars.filter((car)=>car.color===color)
+}
+console.table(filterByColor(cars, 'Red'));
