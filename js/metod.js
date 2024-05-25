@@ -595,22 +595,57 @@ const allSportCar = (cars, isSportCar)=> {
 console.table(allSportCar(cars, 'isSportCar')); 
 
 // знайти авто новіші за 2022р.
-
-const newCar2022 = (cars, year)=> {
+const filterByYear = (cars, year)=> {
   return cars.filter((car)=>car.year > year)
 }
-console.table(newCar2022(cars, '2022')); 
+console.table(filterByYear(cars, '2022')); 
 
 // авто ціна яких вище 30000 
-
 const filterByPrice = (cars, price) =>{
   return cars.filter((car)=>car.price > price)
 }
 console.table(filterByPrice(cars, 30000)); 
 
 // Знайти всі машини червоного кольору.
-
 const filterByColor = (cars, color) => {
   return cars.filter((car)=>car.color===color)
 }
 console.table(filterByColor(cars, 'Red'));
+
+// Відсортувати машини за роком випуску (від найстарішого до найновішого).
+// Знайти найдорожчу машину.
+// Знайти всі машини заданої марки (наприклад, Toyota).
+const filterByBrand = (cars, brand) => {
+  return cars.filter((car)=>car.brand===brand)
+}
+console.table(filterByBrand(cars, 'Toyota'));
+
+// Порахувати загальну кількість машин усіх типів.
+// Відсортувати машини за ціною (від найдешевшої до найдорожчої).
+
+// Знайти всі машини певного типу (наприклад, type).
+// const filterByType = (cars, type)=>{
+//   return cars.filter((car)=>car.type===type)
+// }
+const filterByType =(cars, type)=> cars.filter((car)=>car.type===type)
+console.table(filterByType(cars, 'Sedan'));
+
+// Знайти всі машини певного кольору та року випуску.
+const filterByYearColor = (cars, color, year)=> 
+  cars.filter((car)=>car.color ===color && car.year >=year)
+  console.table(filterByYearColor(cars, 'Silver', 2019));
+
+// Порахувати середню ціну всіх машин.
+// Знайти всі машини, у яких кількість на складі більша за 0.
+// Знайти всі машини з ціною менше 30000 та роком випуску після 2020 року.
+// Порахувати сумарну кількість всіх машин заданої марки.
+// Відсортувати машини за кількістю на складі (від найбільшої до найменшої).
+// Знайти всі машини, які не є спортивними та доступні для продажу.
+// Порахувати загальну вартість всіх машин складі.
+// Знайти всі машини певного типу та кольору.
+// Відсортувати машини за брендом та моделлю в алфавітному порядку.
+// Перевірити, чи є хоч одна машина зеленого кольору.
+// Створити новий масив, що містить лише назви моделей усіх машин.
+// Створити масив, що містить розмітку кожної машини.
+// Знайти індекс першої машини з роком випуску 2022 року.
+// Сортувати за ціною
