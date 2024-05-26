@@ -662,11 +662,23 @@ const autoToyota = (cars, brand) => {
              .reduce((acc, car)=>{return acc+car.amount},0)
 }
 console.table(autoToyota(cars, 'Toyota'));
+
 // Відсортувати машини за кількістю на складі (від найбільшої до найменшої).
+const autoSorted=(cars)=>cars.toSorted((a,b)=>b.amount-a.amount)
+console.table(autoSorted(cars));
+
 // Знайти всі машини, які не є спортивними та доступні для продажу.
+
 // Порахувати загальну вартість всіх машин складі.
+const totalPriceAuto=cars.reduce((acc, car)=>{return acc+= car.price*car.amount},0)
+console.log(totalPriceAuto);
+
 // Знайти всі машини певного типу та кольору.
+const filterTypeAuto = (cars, type, color) => cars.filter((car)=>{return car.type===type && car.color===color})
+console.table(filterTypeAuto(cars, 'Sedan', "Silver"));
+
 // Відсортувати машини за брендом та моделлю в алфавітному порядку.
+
 // Перевірити, чи є хоч одна машина зеленого кольору.
 const someBycolor =(cars, color)=> cars.some((car)=>car.color===color)
 console.log(someBycolor(cars, 'Green'));
