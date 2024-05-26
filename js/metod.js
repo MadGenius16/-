@@ -613,7 +613,10 @@ const filterByColor = (cars, color) => {
 console.table(filterByColor(cars, 'Red'));
 
 // Відсортувати машини за роком випуску (від найстарішого до найновішого).
+const autoSort = (cars) => cars.toSorted((a, b)=>a.year-b.year)
+console.table(autoSort(cars));
 // Знайти найдорожчу машину.
+
 // Знайти всі машини заданої марки (наприклад, Toyota).
 const filterByBrand = (cars, brand) => {
   return cars.filter((car)=>car.brand===brand)
@@ -621,8 +624,12 @@ const filterByBrand = (cars, brand) => {
 console.table(filterByBrand(cars, 'Toyota'));
 
 // Порахувати загальну кількість машин усіх типів.
-// Відсортувати машини за ціною (від найдешевшої до найдорожчої).
+const totalAuto = cars.reduce((acc, car)=>{return acc+car.amount},0)
+console.log(totalAuto);
 
+// Відсортувати машини за ціною (від найдешевшої до найдорожчої).
+const autoToSortedPrice = (cars) => cars.toSorted((a,b)=>a.price-b.price)
+console.table(autoToSortedPrice(cars))
 // Знайти всі машини певного типу (наприклад, type).
 // const filterByType = (cars, type)=>{
 //   return cars.filter((car)=>car.type===type)
@@ -636,7 +643,13 @@ const filterByYearColor = (cars, color, year)=>
   console.table(filterByYearColor(cars, 'Silver', 2019));
 
 // Порахувати середню ціну всіх машин.
+const totalPrice = cars.reduce((acc, car)=>{return acc+=car.price},0)
+const agPrice = totalPrice / cars.length
+console.log(agPrice)
+
 // Знайти всі машини, у яких кількість на складі більша за 0.
+const autoSklad= (cars) => cars.filter((car)=> car.amount>0)
+console.table(autoSklad(cars))
 
 // Знайти всі машини з ціною менше 30000 та роком випуску після 2020 року.
 const filterByYearPrice = (cars, price, year)=>
@@ -644,6 +657,11 @@ const filterByYearPrice = (cars, price, year)=>
 console.table(filterByYearPrice(cars, 30000, 2020));
 
 // Порахувати сумарну кількість всіх машин заданої марки.
+const autoToyota = (cars, brand) => {
+  return cars.filter((car)=>car.brand===brand)
+             .reduce((acc, car)=>{return acc+car.amount},0)
+}
+console.table(autoToyota(cars, 'Toyota'));
 // Відсортувати машини за кількістю на складі (від найбільшої до найменшої).
 // Знайти всі машини, які не є спортивними та доступні для продажу.
 // Порахувати загальну вартість всіх машин складі.
