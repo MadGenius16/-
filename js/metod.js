@@ -668,6 +668,8 @@ const autoSorted=(cars)=>cars.toSorted((a,b)=>b.amount-a.amount)
 console.table(autoSorted(cars));
 
 // Знайти всі машини, які не є спортивними та доступні для продажу.
+const allCar = cars.reduce((acc, car)=>{return acc+=car.amount && !car.isSportCar},0)
+console.table(allCar)
 
 // Порахувати загальну вартість всіх машин складі.
 const totalPriceAuto=cars.reduce((acc, car)=>{return acc+= car.price*car.amount},0)
@@ -678,12 +680,16 @@ const filterTypeAuto = (cars, type, color) => cars.filter((car)=>{return car.typ
 console.table(filterTypeAuto(cars, 'Sedan', "Silver"));
 
 // Відсортувати машини за брендом та моделлю в алфавітному порядку.
+const autoSortedBrandModel = (cars)=> cars.toSorted((a,b)=>a.brand.localeCompare(b.brand) && a.model.localeCompare(b.model))
+console.table(autoSortedBrandModel(cars))
 
 // Перевірити, чи є хоч одна машина зеленого кольору.
 const someBycolor =(cars, color)=> cars.some((car)=>car.color===color)
 console.log(someBycolor(cars, 'Green'));
 
 // Створити новий масив, що містить лише назви моделей усіх машин.
+const newCarAuto = cars.reduce((acc, car)=>{return acc.concat(car.model)},[])
+console.table(newCarAuto)
 // Створити масив, що містить розмітку кожної машини.
 // Знайти індекс першої машини з роком випуску 2022 року.
 // Сортувати за ціною
